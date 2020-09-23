@@ -1,8 +1,8 @@
-# ND_ICG_2020_Practical_Six
-Practical Six for Introduction to Computational Genomics
+# ND_ICG_2020_Practical_Seven
+Practical Seven for Introduction to Computational Genomics
 
-This practical is intended to help you get used to creating julia packages.
+This practical is intended to quiz you
 
-Download this repository, and create a Julia _pakcage_ that has a command that outputs "hello world" when called. Create a practical.sh script which calls your Julia _pakcage_ which outputs "hello world"
+Download this repository, and create a Julia script that takes a fasta as an argument and calculates the sequence diversity of the fasta file. Create a practical.sh script which calls your Julia script with the included fasta file. 
 
-See this link for help: https://julialang.github.io/Pkg.jl/v1/creating-packages/
+you are allowed to use the [GeneticVariation](https://biojulia.net/GeneticVariation.jl) julia package
