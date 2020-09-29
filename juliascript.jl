@@ -1,7 +1,18 @@
 #! usr/bin/env julia
+using Pkg
+Pkg.activate()
+
+Pkg.add("BioSequences")
 using BioSequences
+
+Pkg.add("FASTX")
 using FASTX
+
+Pkg.add("ArgParse")
 using ArgParse
+
+Pkg.add("GeneticVariation")
+using GeneticVariation
 
 #Parse arguments
 s = ArgParseSettings()
@@ -30,15 +41,8 @@ close(r)
 
 println(sequence_array)
 
-using Pkg
-Pkg.activate()
-Pkg.add("GeneticVariation")
-using GeneticVariation
-using BioSequences
-
 freq = gene_frequency(sequence_array)
 
 println("Gene Frequency of input fasta:")
 println(freq)
-    
 
