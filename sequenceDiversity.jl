@@ -1,29 +1,44 @@
 #!usr/bin/env julia
 
-#Import Pkg package
-using Pkg
+#Import and add necessary packages
+#import Pkg
+#Pkg.add("BioSequences")
+#Pkg.add("FASTX")
+####If necessary, download and activate to
+#### add the latest GeneticVariation release
+#### instead of using the Julia REPL
+####Pkg.activate(".")
+#Pkg.add("GeneticVariation")
 
-#Add packages
-Pkg.add("GeneticVariation")
-Pkg.add("BioSequences")
-Pkg.add("FASTX")
-
-#Use packages
-using GeneticVariation
+#Import packages
 using BioSequences
 using FASTX
+using GeneticVariation
 
 #Retrieve input fasta
 input=ARGS[1]
 
-#Retrieve fasta sequences
-fasta=open(FASTQ.Reader, input)
+#Retrieve input fasta
+fasta=open(FASTX.FASTA.Reader, input)
 
 #Initialize array for nucelotide sequences 
-sequences=BioSequence{DNAAlphabet{4}}(fasta)
+sequences=BioSequence{DNAAlphabet{4}}[]
+
+#Retrieve sequences from fasta
+for seq in fasta
+	#Add each sequence to array
+    push!(sequences, FASTX.FASTA.sequence(seq))
+end
+
+#Create variable that contains unique sequence counts
+composition=BioSequences.composition(sequences)
 
 #Compute allele frequencies
-result=gene_frequency(sequences)
+println("Allele frequencies:")
+gene_frequencies(composition)
 
-#Output gene frequency
-println(result)
+#Compute measures of genetic diversity
+println("Average number of mutations:")
+avg_mut(sequences)
+println("Nucleotide diversity:")
+NL79(sequences)
