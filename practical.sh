@@ -12,4 +12,4 @@ module load julia
 #cd GeneticVariation.jl-0.4.0
 
 #Run julia package
-julia ./sequenceDiversity.jl
+julia ./sequenceDiversity.jl practical_four.fasta
