@@ -1,5 +1,9 @@
 #!usr/bin/env julia
 
+#Script to calculate the sequence diversity of a fasta file
+#Usage: julia ./sequenceDiversity.jl fastaFile
+#Usage Ex: julia ./sequenceDiversity.jl practical_four.fasta
+
 #Import and add necessary packages
 #import Pkg
 #Pkg.add("BioSequences")
