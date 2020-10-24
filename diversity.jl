@@ -27,5 +27,6 @@ for record in r
 end
 close(r)
 
+nucleotide_diversity = NL79(sequence_array)
 println("nucleotide diversity:")
-NL79(sequence_array)
+println(nucleotide_diversity)
